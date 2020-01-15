@@ -88,25 +88,21 @@ author:
 # Site Footer
 footer:
   links:
+    - label: "Email"
+      icon: "fas fa-envelope"
+      url: mailto:samcoffeejunkie@protonmail.com
+    - label: "Hack The Box"
+      icon: "fas fa-cube"
+      url: "https://www.hackthebox.eu/profile/146917"
     - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      # url:
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      # url:
+      icon: "fab fa-twitter"
+      url: "https://twitter.com/coffeejunkiee_"
     - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      # url:
-    - label: "GitLab"
-      icon: "fab fa-fw fa-gitlab"
-      # url:
-    - label: "Bitbucket"
-      icon: "fab fa-fw fa-bitbucket"
-      # url:
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      # url:
-
+      icon: "fab fa-github"
+      url: "https://github.com/CoffeeJunkiee"
+    - label: "Platzi"
+      icon: "fas fa-laptop-code"
+      url: "https://platzi.com/@sampar01/"
 
 # Reading Files
 include:
