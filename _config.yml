@@ -70,11 +70,11 @@ author:
   email            :
   links:
     - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      # url: mailto:your.name@email.com
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      # url: "https://your-website.com"
+      icon: "fas fa-envelope"
+      url: mailto:samcoffeejunkie@protonmail.com
+    - label: "Hack The Box"
+      icon: "as fa-cube"
+      url: "https://www.hackthebox.eu/profile/146917"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       # url: "https://twitter.com/"
