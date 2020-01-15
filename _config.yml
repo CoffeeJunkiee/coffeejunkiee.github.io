@@ -33,7 +33,7 @@ comments:
   provider               : "utterances"
   utterances:
     theme                : "github-dark"
-    issue_term           : "pathname" (default)
+    issue_term           : "pathname"
 staticman:
   allowedFields          : # ['name', 'email', 'url', 'message']
   branch                 : # "master"
