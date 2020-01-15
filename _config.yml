@@ -100,8 +100,8 @@ analytics:
 author:
   name             : "Samuel Paredes"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
-  location         : "Somewhere"
+  bio              : "Cyber Security Student and **pentester** in continuos development."
+  location         : "Ohio, US"
   email            :
   links:
     - label: "Email"
