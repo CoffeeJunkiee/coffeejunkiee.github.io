@@ -73,7 +73,7 @@ author:
       icon: "fas fa-envelope"
       url: mailto:samcoffeejunkie@protonmail.com
     - label: "Hack The Box"
-      icon: "as fa-cube"
+      icon: "fas fa-cube"
       url: "https://www.hackthebox.eu/profile/146917"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
