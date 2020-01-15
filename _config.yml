@@ -99,7 +99,7 @@ analytics:
 # Site Author
 author:
   name             : "Samuel Paredes"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/bio-photo.jpg"
   bio              : "Cyber Security Student and **pentester** in continuos development."
   location         : "Ohio, US"
   email            :
