@@ -1,5 +1,4 @@
 ---
-layout: default
 title:  "This is just a ride"
 ---
 
