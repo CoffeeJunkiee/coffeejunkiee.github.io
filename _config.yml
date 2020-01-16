@@ -72,6 +72,9 @@ author:
     - label: "Email"
       icon: "fas fa-envelope"
       url: mailto:samcoffeejunkie@protonmail.com
+    - label: "LinkedIn"
+      icon: "fab fa-linkedin-in"
+      url: https://www.linkedin.com/in/sam-par/
     - label: "Hack The Box"
       icon: "fas fa-cube"
       url: "https://www.hackthebox.eu/profile/146917"
@@ -91,6 +94,9 @@ footer:
     - label: "Email"
       icon: "fas fa-envelope"
       url: mailto:samcoffeejunkie@protonmail.com
+    - label: "LinkedIn"
+      icon: "fab fa-linkedin-in"
+      url: https://www.linkedin.com/in/sam-par/
     - label: "Hack The Box"
       icon: "fas fa-cube"
       url: "https://www.hackthebox.eu/profile/146917"
