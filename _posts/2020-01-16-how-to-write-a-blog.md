@@ -1,5 +1,5 @@
 ---
-layout: posts
+layout: default
 title:  "This is just a ride"
 ---
 
