@@ -2,8 +2,6 @@
 title:  "This is just a ride"
 ---
 
-# Bill Hicks
+# And you can change it any time you want.
 
-**Hello world**, this is my first Jekyll blog post.
-
-I hope you like it!
+It's only a choice
