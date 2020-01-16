@@ -2,10 +2,10 @@
 title:  "About"
 permalink: /about/
 header:
-  image: "/assets/images/500x300.jpg"
+  image: #"/assets/images/500x300.jpg"
 
 ---
 
-# Fuck it
+# Nothing here yet :)
 
-Trying to do something
+Looking for something, huh?
