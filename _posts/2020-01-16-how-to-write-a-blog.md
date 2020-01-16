@@ -1,9 +1,9 @@
 ---
-layout: post
-title:  "Welcome to Jekyll!"
+layout: posts
+title:  "This is just a ride"
 ---
 
-# Welcome
+# Bill Hicks
 
 **Hello world**, this is my first Jekyll blog post.
 
