@@ -36,7 +36,7 @@ comments:
     issue_term           : "pathname"
 search                   : true
 search_full_content      : true
-search_provider          : lunr 
+search_provider          : #lunr 
 
 # Social Sharing
 twitter:
