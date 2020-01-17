@@ -19,7 +19,7 @@ locale                   : "en-US"
 title                    : "CoffeeJunkie's Site"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Samuel Paredes (CoffeeJunkie)"
+name                     : "Sam Paredes (CoffeeJunkie)"
 description              : "Continuous learning about penetration testing."
 url                      : "https://coffeejunkiee.github.io/"
 baseurl                  : # the subpath of your site, e.g. "/blog"
