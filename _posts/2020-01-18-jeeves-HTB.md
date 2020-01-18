@@ -173,3 +173,29 @@ To open the file that we transfer from Jeeves in KeePassX the steps are:
 4. Open
 
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/need-pass.png" alt="need-pass">
+
+Then we need a password. This password can be cracked with "John The Ripper" which will extract a hash from the keypass file using __keepass2john__. The following command will execute __keepass2john__ to extrack the hash from the file. 
+
+```
+keepass2john CEH.kdbx > CEH
+```
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/CEH.png" alt="CEH">
+
+This is the hash once is extracted. 
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/CEH-hash.png" alt="CEH-hash">
+
+Once the file is extracted, we can crack the hash using __john__ and the common wordlist __rockyou.txt__. To do this we execute the following commands. 
+
+```
+john CEH -w:/usr/share/wordlists/rockyou.txt
+```
+
+and then
+
+```
+john CEH --show
+```
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/hash-cracked.png" alt="hash-cracked">
