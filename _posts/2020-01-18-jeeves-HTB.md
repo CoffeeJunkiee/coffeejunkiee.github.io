@@ -199,3 +199,14 @@ john CEH --show
 ```
 
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/hash-cracked.png" alt="hash-cracked">
+
+After obtaining the password which is ```monshine1```, it is possible to access to the password manager. Once in the password manager and looking around to different passwords, the most interesting is __"Backup stuff"__.
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/backup.png" alt="backup">
+
+Information Obtained in  __"Backup stuff"__
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/backup-hash.png" alt="backup-hash">
+
+The information obtained from here will because is hash NTLM valid for an user. To get access to the machine, there is a technique called ["Pass The Hash"](https://en.wikipedia.org/wiki/Pass_the_hash) where we can get access to the system through a tool called ["pth-winexe"](https://www.kali.org/penetration-testing/passing-hash-remote-desktop/)
+
