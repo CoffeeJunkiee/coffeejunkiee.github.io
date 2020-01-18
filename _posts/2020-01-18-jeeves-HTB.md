@@ -45,6 +45,7 @@ python3 dirsearch.py -u http://10.10.10.63:50000/ -w /usr/share/wordlists/dirbus
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/dir-50000.png" alt="dirsearch">
 
 Bingo! We have something to look at __http://10.10.10.63/askjeeves/__
+
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/jenkins.png" alt="browser">
 
 So, after visitin this page and looking around things, in __"Manage Jenkins"__ there is something interesting called __"Script Console"__, and after googling around its exploitation we found something useful from [Hacking Articles](https://www.hackingarticles.in/exploiting-jenkins-groovy-script-console-in-multiple-ways/).
