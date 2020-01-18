@@ -112,4 +112,16 @@ So, wollah!
 
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/shell-gif.gif" alt="shell-gif">
 
+## Getting the user flag
+
+Once the reverse shell is obtained, it is not possible to move back from the directory because we don't have the privileges to do it due to our location in the administrator folder, but it's possible to list the files in the current directory, but that not helps too much. 
+
+Note: If the reverse shell is obtained through the powershell method we can move back directories with no problem, but can't list the files in the Administrator folder due to lack of privileges. 
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/access-denied.png" alt="access-denied">
+
+Then, we can move directly to the "users" folder with no problem, list the available users and obtain the users flag!
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/user.png" alt="user flag">
+
 
