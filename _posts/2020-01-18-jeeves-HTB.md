@@ -24,8 +24,37 @@ Looks like we have some HTTP services running in port 80 and 50000. Also we can 
 
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/nmap-scripts.png" alt="smb scan">
 
-Then, having HTTP service running in port 80 and 50000 and running [dirsearch](https://github.com/maurosoria/dirsearch) in both ports, we get some good results.
+### Directory Brute Force
+Then, having HTTP service running in port 80 and 50000 and running [dirsearch](https://github.com/maurosoria/dirsearch) in both ports, we get some good results in port 50000.
 
 Results from browser and dirsearch running in port 80. 
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/browser-80.png" alt="browser">
+
+```
+python3 dirsearch.py -u http://10.10.10.63 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -e php -t 50
+```
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/dir-80.png" alt="dirsearch">
+
+Results rom browser and dirsearch running in port 50000.
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/not-found.png" alt="browser">
+
+```
+python3 dirsearch.py -u http://10.10.10.63:50000/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -e php -t 50
+```
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/dir-50000.png" alt="dirsearch">
+
+Bingo! We have something to look at __http://10.10.10.63/askjeeves/__
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/jenkins.png" alt="browser">
+
+So, after visitin this page and looking around things, in __"Manage Jenkins"__ there is something interesting called __"Script Console"__, and after googling around its exploitation we found something useful from [Hacking Articles](https://www.hackingarticles.in/exploiting-jenkins-groovy-script-console-in-multiple-ways/).
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/jenkins-manage.png" alt="Manage Jenkins">
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/script-console.png" alt="Script Console">
+
+## Reverse Shell
+Knowing that we can do some exploitation with the script console in Jenkins. There are couple methods to get a reverse shell where I'll share two. 
+
+
+
