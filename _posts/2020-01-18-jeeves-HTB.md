@@ -208,5 +208,10 @@ Information Obtained in  __"Backup stuff"__
 
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/backup-hash.png" alt="backup-hash">
 
-The information obtained from here will because is hash NTLM valid for an user. To get access to the machine, there is a technique called ["Pass The Hash"](https://en.wikipedia.org/wiki/Pass_the_hash) where we can get access to the system through a tool called ["pth-winexe"](https://www.kali.org/penetration-testing/passing-hash-remote-desktop/)
+The information obtained from here will because is hash NTLM valid for an user. To get access to the machine, there is a technique called ["Pass The Hash"](https://en.wikipedia.org/wiki/Pass_the_hash) where we can get access to the system through a tool called ["pth-winexe"](https://www.kali.org/penetration-testing/passing-hash-remote-desktop/).
 
+The following command using __pth-winexe__ will use the Windows NTLM hash to get an administrative command prompt on the target machine. 
+
+```
+pth-winexe -U Administrator%aad3b435b51404eeaad3b435b51404ee:e0fb1fb85756c24235ff238cbe81fe00 --system //10.10.10.63 cmd.exe
+```
