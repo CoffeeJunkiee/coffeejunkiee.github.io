@@ -6,7 +6,7 @@ header:
 
 ---
 
-Welcome! My name is Sam Paredes (CoffeeJunkie), I am a cybersecurity student origillary from Colombia and currently living in the US.
+Welcome! My name is Sam Paredes (CoffeeJunkie), I am a cybersecurity student originally from Colombia and currently living in the US.
 
 My main interests include penetration testing, malware analysis, OSINT, and programming. However, I always enjoy building and breaking all sorts of systems. I'm currently working towards my OSCP (Offensive Security Certified Professional) certification and completing my major in cybersecurity.
 
