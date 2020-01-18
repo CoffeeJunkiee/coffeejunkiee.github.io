@@ -13,9 +13,13 @@ Welcome! So, before starting with couple ways of getting this box, I want to exp
 ## Information Gathering
 
 ### Nmap Scan
-So we start with a nmap scan to check what ports are open and what services are running in this machine. 
+So, we start with a nmap scan to check what ports are open and what services are running in this machine. 
 
 ```
 nmap -sC -sV -p- -oN scan.nmap 10.10.10.63
 ```
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/nmap-scan.png" alt="nmap scan">
+
+Looks like we have some HTTP services running in port 80 and 50000. Also we can deduce that the machine is running Windows due to the IIS server. There is a good chance to scan the port 445 which is running a SMB service, but unfortunately the results are not helpful. 
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/nmap-scripts.png" alt="smb scan">
