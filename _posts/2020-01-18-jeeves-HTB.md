@@ -158,4 +158,10 @@ From the smbserver it's going to appear the connection made with Jeeves, and in 
 
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/transfer-done.png" alt="transfer-done">
 
+Now that the file is in the local machine, we can use KeePassX in order to open this file. To install KeePassX in Kali Linux is simple as:
+```
+apt-get install keepassx 
+```
+Once KeePassX is installed, we can find it in the application menu toolbar. 
 
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/keepassx.png" alt="keepassx">
