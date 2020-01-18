@@ -165,3 +165,11 @@ apt-get install keepassx
 Once KeePassX is installed, we can find it in the application menu toolbar. 
 
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/keepassx.png" alt="keepassx">
+
+To open the file that we transfer from Jeeves in KeePassX the steps are:
+1. Click in "Database"
+2. Click in "Open database" or Ctrl + O
+3. Select the location.
+4. Open
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/need-pass.png" alt="need-pass">
