@@ -1,5 +1,5 @@
 ---
-title:  "Hack The Box - Jeeves"
+title:  "Hack The Box | Jeeves"
 date: 2020-01-18
 tags: [Penetration Testing, Hacking, Hack The Box, OSCP, Offensive Security]
 header: 
