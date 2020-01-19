@@ -225,3 +225,11 @@ After running the command, we got authority system! Now it's time to get the fla
 It was suppose to be a flag in there, but we need to look deeper, so it's time to figure out how to read the flag. So, after reading another posts and googling around, there is a way to read the flag through [Alternative Data Streams](https://blog.malwarebytes.com/101/2015/07/introduction-to-alternate-data-streams/) . To list this kind of files we can run the command ```dir /r``` which will list most of the files, in this case our root.flag
 
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/ads.png" alt="ads">
+
+We can't view the flag with a simple ```type``` command, so we must use the command ```more``` in order to see the root flag.
+
+```more < hm.txt.root.txt```
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/root.png" alt="root">
+
+and we got root flag!
