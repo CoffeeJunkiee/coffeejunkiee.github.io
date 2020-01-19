@@ -215,3 +215,13 @@ The following command using __pth-winexe__ will use the Windows NTLM hash to get
 ```
 pth-winexe -U Administrator%aad3b435b51404eeaad3b435b51404ee:e0fb1fb85756c24235ff238cbe81fe00 --system //10.10.10.63 cmd.exe
 ```
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/pth-winexe.png" alt="pth-winexe">
+
+After running the command, we got authority system! Now it's time to get the flag.
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/look-deeper.png" alt="look-deeper">
+
+It was suppose to be a flag in there, but we need to look deeper, so it's time to figure out how to read the flag. So, after reading another posts and googling around, there is a way to read the flag through [Alternative Data Streams](https://blog.malwarebytes.com/101/2015/07/introduction-to-alternate-data-streams/) . To list this kind of files we can run the command ```dir /r``` which will list most of the files, in this case our root.flag. 
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/ads.png" alt="ads">
