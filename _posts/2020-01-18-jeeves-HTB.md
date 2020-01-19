@@ -293,3 +293,6 @@ After running the command, we got authority system! Now it's time to get the fla
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/root.png" alt="root">
 
 and we got root flag!
+
+## To Conclude
+There are multiple ways and techniques to obtain reverse shells or authority system in this box. Something new that I learned was how to obtain the authority system through Rotten Potato without a meterpreter. Also, from the Script Console there are multiple ways to execute code in the backend of the machine which it was something fun to exploit!
