@@ -128,6 +128,11 @@ Then, we can move directly to the "users" folder with no problem, list the avail
 
 To get the root flag there are two ways to get it where one compromises a file that has been gotten from the Documents directory within the user and the other way is using [RottenPotato](https://github.com/foxglovesec/RottenPotato) to scalate to root. 
 
+
+### Getting root flag - Method #2
+
+In the OSCP exam the chances to use The Metasploit Framework have its limits. To root in this way we are going to use
+
 ### Getting root flag - Method #1
 After looking around in the directories from the user __kohsuke__, there is a file in the Documents directory with __kdbx__ extension. 
 
