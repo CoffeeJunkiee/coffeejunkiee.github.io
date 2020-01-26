@@ -25,4 +25,7 @@ There are different tools to make SMB enumeration, you can use [enum4linux](http
 ```
 smbmap -H 10.10.10.100
 ```
+where:
+- ```-H``` specifies the host to scan. 
+
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/active/smbmap.png" alt="nmap scan">
