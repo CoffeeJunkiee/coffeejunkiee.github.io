@@ -25,7 +25,28 @@ There are different tools to make SMB enumeration, you can use [enum4linux](http
 ```
 smbmap -H 10.10.10.100
 ```
-where:
+Where:
 - ```-H``` specifies the host to scan. 
 
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/active/smbmap.png" alt="nmap scan">
+
+Looking to the results given by smbmap we can onlu access the share __Replication__ anonymously. In order to access to __Replication__, we are going to need [smbclient](https://www.tldp.org/HOWTO/SMB-HOWTO-8.html), as the log in is anonymously, we don't need a password to get in.
+
+```
+smbclient //10.10.10.100/Replication
+```
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/active/smbmap.png" alt="nmap scan">
+
+Once we loged in to SMB there are going to be many folders and files to look at, but the folder and file that actually gave food results was ```\active.htb\Policies\{31B2F340-016D-11D2-945F-00C04FB984F9}\MACHINE\Preferences\Groups\``` which contains a xml files with interesting information about groups. 
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/active/smb-groups.png" alt="nmap scan">
+
+Once we get the file in our local host, this is the information from the xml file.
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/active/password-group.png" alt="nmap scan">
+
+AAS you can see, it appears something called [cpassword](https://pentestlab.blog/tag/cpassword/) which has some kind of GPP encryption that we can decrypt with the tool called [gpp-decrypt](https://tools.kali.org/password-attacks/gpp-decrypt) which is installed in Kali Linux. This is the command to decrypt the password. 
+```
+gpp-decrypt edBSHOwhZLTjt/QS9FeIcJ83mjWA98gw9guKOhJOdcqh+ZGMeXOsQbCpZ3xUjTLfCuNH8pG5aSVYdYw/NglVmQ
+```
+
