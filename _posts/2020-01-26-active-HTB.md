@@ -49,4 +49,56 @@ AAS you can see, it appears something called [cpassword](https://pentestlab.blog
 ```
 gpp-decrypt edBSHOwhZLTjt/QS9FeIcJ83mjWA98gw9guKOhJOdcqh+ZGMeXOsQbCpZ3xUjTLfCuNH8pG5aSVYdYw/NglVmQ
 ```
+After executing the command we got a password which is ```GPPstillStandingStrong2k18```, but what about the user? Well, in the xml file showed above appears clearly that the username is ```SVG_TGS```, then we can use this username and password to access to SMB but not anonymously, this time as a registered user. 
 
+```
+smbclient //10.10.10.100/Users -U SVC_TGS
+```
+
+### User Flag
+
+After loging in there is a good chance to obtain the user flag where it's located in ```\SVG_TGS\Desktop``` and get can transfer it to our localhost and read it!
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/active/user-flag.png" alt="nmap scan">
+
+wolah! We got user.
+
+### Getting Root
+Doing this on my own was complicated due to my lack of knowledge about kerberos enumeration, so I have to thank [0xRick](https://0xrick.github.io/) for his explanation about [kerberoasting](https://attack.mitre.org/techniques/T1208/). Before attempting this please add ```10.10.10.100``` in your ```/etc/hosts/``` file as ```active.htb``` in order to execute successfully this attack.
+
+#### Get User SPNs
+There is a good tool in the [impacket](https://github.com/SecureAuthCorp/impacket) tool set called [GetUserSPNs.py](https://raw.githubusercontent.com/SecureAuthCorp/impacket/master/examples/GetUserSPNs.py) which allows us to get the administrator hash using our credentials from the user. 
+
+```
+./GetUserSPNs.py -request active.htb/SVC_TGS
+```
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/active/getuserspns.png" alt="nmap scan">
+
+And we have a hash! It's time to use [John](https://www.openwall.com/john/) to crack this hash.
+
+#### Cracking The Hash with John
+After saving the hash we can in file where I saved it as ```admin``` we can use john and a wordlist in order to crack the hash and obtin the password with the following command.
+
+```
+john -w=/usr/share/wordlists/rockyou.txt admin
+```
+Where
+- ```w=``` specifies the wordlist to use to crack the password. 
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/active/john.png" alt="nmap scan">
+
+And out administrator password is: ```Ticketmaster1968```!
+
+#### Using psexec to Get The Root Flag.
+
+From impacket there are another amazing tool called [psexec.py](https://raw.githubusercontent.com/SecureAuthCorp/impacket/master/examples/psexec.py) where having the adminstrator password will allow us to connect to the machine and request the command prompt from the administrator. 
+
+```
+python3 psexec.py administrator@active.htb
+```
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/active/root-flag.png" alt="nmap scan">
+
+And we got the root flag! 
+
+## To conclude
+Enumeration in the important services is a good technique to avoid rabbit holes, also I learned that SMB can be useful for getting files and information from the victim machine. Also impacket has a good set of networking tools that its usage will be beneficial at the time to do penetration testing. 
