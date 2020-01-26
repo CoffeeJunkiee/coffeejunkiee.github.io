@@ -16,3 +16,13 @@ So, we start with a nmap scan to check what ports are open and what services are
 nmap -sC -sV -p- -oN scan.nmap 10.10.10.59
 ```
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/active/nmap.png" alt="nmap scan">
+
+Do not panic! That sounds like a lot of enumeration to do, and it is, but remember some of the important services in this nmap scan, which means that the important services for this machine are SMB, kerberos, and HTTP. But after doing some discovering and extense enumeration the services that will give a straight path to root this machine are SMB and kerberos.
+
+### SMB Enumeration
+There are different tools to make SMB enumeration, you can use [enum4linux](https://highon.coffee/blog/enum4linux-cheat-sheet/), [nmap-scripts](https://nmap.org/nsedoc/scripts/smb-enum-users.html), but my preference is [smbmap](https://tools.kali.org/information-gathering/smbmap) due to its acurate results. 
+
+```
+smbmap -H 10.10.10.100
+```
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/active/smbmap.png" alt="nmap scan">
