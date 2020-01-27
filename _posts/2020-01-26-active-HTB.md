@@ -13,7 +13,7 @@ Active is our fourth machine in the OSCP list provided by [NetSec Focus](https:/
 So, we start with a nmap scan to check what ports are open and what services are running in this machine. 
 
 ```
-nmap -sC -sV -p- -oN scan.nmap 10.10.10.59
+nmap -sC -sV -p- -oN scan.nmap 10.10.10.100
 ```
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/active/nmap.png" alt="nmap scan">
 
