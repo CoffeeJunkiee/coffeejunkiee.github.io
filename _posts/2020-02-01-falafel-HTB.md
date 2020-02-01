@@ -87,5 +87,9 @@ for i in range(1,33): # Try to discover the hash
             print(c, end='',flush=True)
             break
 print()
-
 ~~~
+
+So, basically with this script we'll try all the characters untill one of the gets the correct answer which is ```Wrong identification``` then it prints the correct character untill we got the final hash. Here, we're specifying the user ```chris``` but we can do it with the user ```admin``` as well. This is the hash that has been gotten from ```chris```.
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/falafel/hash-gotten.png" alt="nmap scan">
+
