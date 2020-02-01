@@ -91,5 +91,24 @@ print()
 
 So, basically with this script we'll try all the characters untill one of the gets the correct answer which is ```Wrong identification``` then it prints the correct character untill we got the final hash. Here, we're specifying the user ```chris``` but we can do it with the user ```admin``` as well. This is the hash that has been gotten from ```chris```.
 
+- __chris' hash:__ d4ee02a22fc872e36d9e3751ba72ddc8
+
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/falafel/hash-gotten.png" alt="nmap scan">
 
+Once the hash has been gotten, we go to [CrackStation](https://crackstation.net/) and this is the result. 
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/falafel/hash-cracked.png" alt="nmap scan">
+
+Which menas ```chris:juggling```, and this is what we get once we log in. 
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/falafel/chris-login.png" alt="nmap scan">
+
+Interesting, but no upload feauture, let's try with ```admin```.
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/falafel/admin-hash.png" alt="nmap scan">
+
+So this is the has gotten for ```admin``` user: 0e462096931906507119562988736854. And unfortunately __there is no results in CrackStation__, so looking for more resources, it seems to be some kind of php juggling, so for this we might google something like ```php 0e hash collision``` and we'll see that we can log in with a md5 hash where in this case we used this ```240610708``` and we are in.
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/falafel/upload-feauture.png" alt="nmap scan">
+
+and wolah! Here it is the upload feature!
