@@ -112,3 +112,42 @@ So this is the has gotten for ```admin``` user: 0e462096931906507119562988736854
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/falafel/upload-feauture.png" alt="nmap scan">
 
 and wolah! Here it is the upload feature!
+
+### Reverse Shell
+
+Here is where another countless attempts came. So, there was only attempts to upload images then I tried everything including [exiftool](https://exiftool.org/) to get a reverse shell, but I was not looking at the big picture wich was [wget](https://www.gnu.org/software/wget/) and its limit for characters. So, googling ```maximum character length accepted by wget``` it came with this answer. 
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/falafel/wget-lenght.png" alt="nmap scan">
+
+Then it's only accepted character where its name is under 255 characters. Then let's see how it can be shorter with our target. Let's create a pattern and see how it affects. 
+```
+/usr/share/metasploit-framework/tools/exploit/pattern_create.rb -l 50
+```
+after obtaining our answer we might delete 4 character in order to put our extension for images which is ```.gif``` and try to see how it goes. 
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/falafel/maximum.png" alt="nmap scan">
+
+And this is the new lenght gotten from the from Falafel. 
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/falafel/new-lenght.png" alt="nmap scan">
+ 
+ So, let's count it!
+
+ <img src="{{ site.url }}{{ site.baseurl }}/assets/images/falafel/count-new-lenght.png" alt="nmap scan">
+
+ Once we upload the file they make it shorter to 236 character, so we might add 4 characters more in order to make it 240 so we can uploaded in image for and when it gets shorter is going to be our php reverse shell. 
+ - Example: 
+    - Before uploading = .php.gif
+    - After uplpadeing = .php (because of the 4 bytes shorter)
+
+So, let's set up our python HTTP server and upload our reverse shell gotten from [PentestMonkey](http://pentestmonkey.net/tools/web-shells/php-reverse-shell). So this is before uploading.
+
+ <img src="{{ site.url }}{{ site.baseurl }}/assets/images/falafel/before-shell.png" alt="nmap scan">
+
+This is the size and the extension ```.php``` after it was uploaded and shorter. 
+
+ <img src="{{ site.url }}{{ site.baseurl }}/assets/images/falafel/before-shell-2.png" alt="nmap scan">
+
+And we go to the directory where it was uploaded, we got a shell!
+
+ <img src="{{ site.url }}{{ site.baseurl }}/assets/images/falafel/shell-gotten.png" alt="nmap scan">
