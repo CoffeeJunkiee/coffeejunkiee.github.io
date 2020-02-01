@@ -22,7 +22,7 @@ Here we have two useful ports and services such as SSH running in port 22 and HT
 ### Directory Brute Force
 This is what we have in our browser for now.
 
-<img src="{{ site.url }}{{ site.baseurl }}/assets/images/falafel/browser-capture.png" alt="nmap scan">
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/falafel/browser-capure.png" alt="nmap scan">
 
 Running [dirsearch](https://github.com/maurosoria/dirsearch) we have some results!
 ```
