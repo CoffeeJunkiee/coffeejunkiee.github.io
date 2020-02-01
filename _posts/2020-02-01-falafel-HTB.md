@@ -151,3 +151,59 @@ This is the size and the extension ```.php``` after it was uploaded and shorter.
 And we go to the directory where it was uploaded, we got a shell!
 
  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/falafel/shell-gotten.png" alt="nmap scan">
+
+### Privilege Escalation
+
+#### Getting Moshe
+To get the user moshe from our target machine is quite surprising because we can find the credentials at ```/var/www/html/connection.php```, as we are ```www-data``` by default we landed in this folder this time. 
+
+ <img src="{{ site.url }}{{ site.baseurl }}/assets/images/falafel/creds-found.png" alt="nmap scan">
+
+and get can get to Moshe just as ```su moshe``` and providing the credentials founded. 
+
+### User flag
+
+Going to ```/home/moshe``` and finding ```user.txt```, we got user flag!
+
+ <img src="{{ site.url }}{{ site.baseurl }}/assets/images/falafel/user-flag.png" alt="nmap scan">
+
+### Getting Yossi
+
+So, according in the picture above looks like we are in the video groups which allow us to see current screenshots from other users, in this case Yossi. So moving to ```/dev/fb0``` and transfering it to our localhost as ```fb.data``` we might get a picture of what's going on.
+
+ <img src="{{ site.url }}{{ site.baseurl }}/assets/images/falafel/nc-transfer.png" alt="nmap scan">
+
+So, opening this file in [Gimp](https://www.gimp.org/) and adjusting the size widht to 764 pixels, we see that Yossi was trying to change the password, and her password is ```MoshePlzStopHackingMe!```.
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/falafel/yossi.png" alt="nmap scan">
+
+And we log in as ```su yossi``` with her password which is ```MoshePlzStopHackingMe!```. 
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/falafel/yossi-gotten.png" alt="nmap scan">
+
+### Getting Root
+
+According the picture above, looks like Yossi extrangely is the groups disk which allows to read the disk from different users including sudo, then there is a handy tool for this action called [debugfs](https://linux.die.net/man/8/debugfs).
+```
+debugfs /dev/sda1
+```
+Once the command is executed we can execute commands as we were root, but we're not, yet. Then here we see the root directory!
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/falafel/debug.png" alt="nmap scan">
+
+we get in the root folder and we can also get the root flag! But the main idea is to get the root flag from a root shell.
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/falafel/debug-root-flag.png" alt="nmap scan">
+
+To get in as root we might find a id_rsa key located at ```/root/.ssh```. Then we can copy, paste and give permissions from our localhost and get root!
+
+### Root Flag
+
+So, we pass the rsa key name ```id_rsa``` and we log in ssh and we got the flag and root shell!
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/falafel/proper-shell.png" alt="nmap scan">
+
+System owned :)
+
+## To conclude
+It was quite interesting to see how the SQL sintax worked and how password brute force won't be always a solution. Also, some files in the system might contain important information and that the groups assigned to the users matter! Definetely, it was a fun box.
