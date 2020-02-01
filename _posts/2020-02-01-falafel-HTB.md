@@ -29,3 +29,21 @@ Running [dirsearch](https://github.com/maurosoria/dirsearch) we have some result
 ./dirsearch.py -u http://10.10.10.73 -w /usr/share/dirbuster/wordlists/directory-list-lowercase-2.3-medium.txt -f -e txt
 ```
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/falafel/dirsearch.png" alt="nmap scan">
+
+Let's see what we find at ```http://10.10.10.73/cyberlaw.txt```
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/falafel/cyberlaw.png" alt="nmap scan">
+
+Great, seems that some of the vector attack is related with the upload feature, here there is a username which is chris, so let's find more usernames. 
+
+### Username Brute Force with Wfuzz
+[Wfuzz](https://github.com/xmendez/wfuzz) is a pretty handy tool that can be helpful for a variety of things. In this case let's use it to do some username brute force.
+```
+wfuzz -c -w /usr/share/seclists/Usernames/Names/names.txt -d "username=FUZZ&password=abcd" -u http://10.10.10.73/login.php --hh 7074
+```
+Where:
+- ```-w``` specifies the wordlist.
+- ```-d``` the parameter to brute force
+- ```-u``` URL of the target
+- ```-hh``` hide results with code 7074
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/falafel/wfuzz.png" alt="nmap scan">
