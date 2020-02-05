@@ -90,4 +90,40 @@ So, let's copy the key to our localhost and give it some permissions to connect 
 
 So, here we are with a proper shell and our flag! Wolah. 
 
+### Privilege escalation
+
+The privilege escalation was tricky here, I tried to exploir some SUIDs with no success and after listing a couple files in ```/home/roosa/work/blogfeed``` there was this interesting file called ```.git``` where it gave me the suspcion of finding something.
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/devops/suspicious.png" alt="nmap scan">
+
+So, reading and looking around more blogs about this machine, I didn't knwow that you can check the logs with a git command, so this actually helped to see that in this folder, somebody was trying to change an authorization key! This is the command for git. 
+```
+ git log --name-only --oneline
+```
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/devops/key-info.png" alt="nmap scan">
+
+So here there is a way to compare this commits with a git command and see what information was replaced!
+
+```
+git diff 33e87c3 d387abf 
+```
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/devops/compare.png" alt="nmap scan">
+
+Great! Seems that somebody was trying to change the key, from here I tried both keys where the one that gave a good result was the highlited in green which means that it was the replacement of the old one. So let's save the key and give it permissions to log as root. __Remember to do this as roosa because roosa has privileges to log in through ssh as root, we as localhost don't have that privilege__
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/devops/before-trying.png" alt="nmap scan">
+
+And let's log in and get the root flag!
+
+#### Root Flag
+
+So, after saving the key and giving it permission we could log in and get the flag! Challenge done!
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/devops/root-flag.png" alt="nmap scan">
+
+## To Conclude
+
+Learning that there is something else from remote execution and how useful the ability to read remote files can be is very good! Also I didn't have any knowledge about XXE where this machine was something eye openning. Also, the privilege escalation was curious because of the git commands and the ability to read old contributions and changes, definetely it was a great box!
+
+
 
