@@ -38,7 +38,9 @@ Great! Looks like we have some good chances, so going to ```/feed``` there is no
 
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/devops/upload.png" alt="nmap scan">
 
-As the name says, we can upload a new file, it could txt or XML, but look at the elements that is asking for which are the ___Author, Subject, and Content__, so this is the actual code that we used to test the upload feauture. Check that it has the elements that the website is asking. 
+### XXE Vulnerability Execution
+
+As the name says, we can upload a new file, it could be txt or XML, but look at the elements that is asking for which are the ___Author, Subject, and Content__, so this is the actual code that we used to test the upload feauture. Check that it has the elements that the website is asking. 
 ~~~ xml
 <payload>
   <Author>Coffee</Author>
@@ -46,3 +48,46 @@ As the name says, we can upload a new file, it could txt or XML, but look at the
   <Content>Devoops</Content>
 </payload> 
 ~~~
+Then, once we upload the file with the name as ```test.xml``` we have successfull results!
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/devops/success.png" alt="nmap scan">
+
+So, looking at the website from OWASP which talks about [XXE](https://owasp.org/www-community/vulnerabilities/XML_External_Entity_(XXE)_Processing) there is a good chance to achieve RCE (Remote Code Execution) which in this case is not vulnerable, but we can achive some kind of file reading in this machine! This is the code in order to achive the file reading. 
+
+~~~ xml
+<!DOCTYPE   foo   [ <!ELEMENT   foo   ANY   > 
+<!ENTITY   xxe   SYSTEM   "file:///etc/passwd">]> 
+<payload>
+  <Author>&xxe;</Author>
+  <Subject>Coffee</Subject>
+  <Content>Junkiee</Content>
+</payload> 
+~~~
+
+So, check that where it says ```<Author>&xxe;<Author>``` we are invoking the file listing at the time to execute the file, and with the help from [BurpSuite](https://portswigger.net/burp) and its repeater feature, we can see a successful file reading. 
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/devops/lfi-burp.png" alt="nmap scan">
+
+What we see in the image above is the user roosa which might include some capabilities as well, things like reading the user flag!
+
+### Getting User Flag
+
+So, knowing that we can obtain the user flag, we can actually read it from the repeater in burp just by invoking the flag through the HTTP petition!
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/devops/burp-flag.png" alt="nmap scan">
+
+Cool, we got it! But it's better to obtain a reverse shell in order the complete this challenge as Odin rules. 
+
+#### Getting Reverse Shell
+
+So, thinking around of what possible files we can read, it came up the idea to see if there was some kind of rsa key in the roosa directory, and efectively there was! Going to ```/home/roosa/.ssh/id_rsa``` there was the ssh private key! which means we can log in with ssh. 
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/devops/burp-private.png" alt="nmap scan">
+
+So, let's copy the key to our localhost and give it some permissions to connect to DevOops with the user roosa. 
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/devops/log-flag.png" alt="nmap scan">
+
+So, here we are with a proper shell and our flag! Wolah. 
+
+
