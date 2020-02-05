@@ -19,3 +19,5 @@ So, we start with a nmap scan to check what ports are open and what services are
 nmap -sC -sV -p- -oN scan.nmap 10.10.10.91
 ```
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/devops/nmap.png" alt="nmap scan">
+
+So, we see that the port 5000 is running as a HTTP service, which means that we might visit with our browser and check what we can find!
