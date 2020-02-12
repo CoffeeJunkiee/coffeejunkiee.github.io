@@ -1,6 +1,6 @@
 ---
 title:  "Hack The Box / Netmon"
-date: 2020-02-04
+date: 2020-02-12
 tags: [Penetration Testing, Hacking, Hack The Box, Jeeves, OSCP, Offensive Security]
 header: 
   image: "assets/images/netmon/netmon-header.png"
@@ -18,3 +18,6 @@ So, we start with a nmap scan to check what ports are open and what services are
 nmap -sC -sV -p- -oN scan.nmap 10.10.10.152
 ```
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/netmon/nmap.png" alt="nmap scan">
+
+Great, here in the scan we can see couple common ports such as FTP, HTTP and SMB services, there are also other ports, but this time I enumerate the most common services which gave us results to own this machine. 
+
