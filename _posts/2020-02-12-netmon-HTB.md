@@ -45,3 +45,32 @@ According to this file, the user is ```prtgadmin``` and the password is ```PrTg@
 
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/netmon/loged-in.png" alt="nmap scan">
 
+### Exploitation & Root Flag
+
+So, looking for exploits for PRTG with [searchsploit](https://www.exploit-db.com/searchsploit), there is an exploit that can execute RCE as an authenticated user. So, we are authenticated as user which means that we can execute the [exploit](https://github.com/M4LV0/PRTG-Network-Monitor-RCE), but we need the information about the cookie, so we intercept a request with burp and let's see our cookie. 
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/netmon/burp-cookie.png" alt="nmap scan">
+
+Now, having all the possible parameters, it's time to execute the exploit which will execute remote code and will create a user with user ```pentest``` and password ```P3nT3st!```. 
+```
+root@kali:~/htb/coffee/netmon# ./prtg-exploit.sh -u http://10.10.10.152 -c "OCTOPUS1813713946=ezZCQUQxMzMzLTI4QkUtNEVCMC1BRUFGLTY2RDA5MkJENTAyRX0%3D"
+```
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/netmon/exploit-done.png" alt="nmap scan">
+
+Great, we have the administrative credentials! We don't have login through SSH, but we can take advantage of those SMB ports and using the tool [psexec.py](https://github.com/SecureAuthCorp/impacket/blob/master/examples/psexec.py) from the impacket tools we can login and get our root flag. 
+```
+python3 psexec.py pentest@10.10.10.152
+```
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/netmon/auth-shell.png" alt="nmap scan">
+
+Time to get our root flag!
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/netmon/root-flag.png" alt="nmap scan">
+
+The system has been own!
+
+## To conclude
+
+It was quite interesting how some searches in google about backup and credentials can be useful, also how the password just changed by changing the year. It was a fun box with a interesting exploit due to its remote code execution. 
