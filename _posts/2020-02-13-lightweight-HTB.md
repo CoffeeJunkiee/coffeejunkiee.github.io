@@ -31,3 +31,11 @@ nmap -p 389 10.10.10.119 --script=ldap-brute.nse,ldap-novell-getpass.nse,ldap-ro
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/light/nmap2.png" alt="nmap scan">
 
 Ok, according the results given by nmap, there are different things to look, such as the users which are ```ldapuser1 and ldapuser2```, and there are some hashes, but unfortunately we are not able to crack them.
+
+### Directory Brute Force
+
+After enumerating LDAP, it's time to see what is to find in HTTP, but trying [gobuster](https://github.com/OJ/gobuster) didn't give many results because the machine was protected against multiple requests from the same IP, which means that we got banned multiple times because of trying to do directory brute force. In spite of the protection of the website, we could get some results that were good enough to continue with the process. 
+```
+gobuster dir -u http://10.10.10.119/ -w /usr/share/dirbuster/wordlists/directory-list-lowercase-2.3-medium.txt -t 5 -x .php, .txt, .py
+```
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/light/godir.png" alt="nmap scan">
