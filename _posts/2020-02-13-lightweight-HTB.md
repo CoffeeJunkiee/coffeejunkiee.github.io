@@ -48,3 +48,34 @@ And, after going to ```user.php```, we found information saying that we can logi
 
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/light/brow-info.png" alt="nmap scan">
 
+### SSH Login & Privileges Escalation
+
+Effectively, the login was successful providing credentials as our IP as username and password.
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/light/kinda.png" alt="nmap scan">
+
+So, at the time to escalate privileges, the usage of [LinEnum](https://github.com/rebootuser/LinEnum) was crucial and useful because we found some capabilities that we could execute with our user. The capability was related with usage of [tcpdump](https://www.tcpdump.org/) which means that we can capture traffic in the target machine. 
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/light/privesc.png" alt="nmap scan">
+
+To escalate privileges, we execute tcpdump, wait some time while it captures some traffic packets, and once the packets have been captured, it's time to analyze the traffic in our localhost with [wireshark](https://www.wireshark.org/). This is the command to capture the traffic within the target machine.
+
+```
+tcpdump -i any -w captured.pcap 
+```
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/light/tcpdump.png" alt="nmap scan">
+
+
+Once the traffic has been captured, we can transfer the file through [SCP](https://linuxize.com/post/how-to-use-scp-command-to-securely-transfer-files/) and analyze it with wireshark.
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/light/wireshark.png" alt="nmap scan">
+
+Great, we found credentials in LDAP protocol. So, ```user:ldapuser2``` and ```password:8bc8251332abe1d7f105d3e53ad39ac2```
+
+#### User Flag 
+
+After obtaining the credentials, it's time to log in and get the user flag!
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/light/user-flag.png" alt="nmap scan">
+
+The user has been owned. 
