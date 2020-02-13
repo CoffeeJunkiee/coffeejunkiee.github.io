@@ -21,3 +21,13 @@ nmap -sC -sV -p- -oN scan.nmap 10.10.10.119
 
 There are couple services running such as SSH, HTTP, and LDAP. Sounds like the enumeration is going to be quiet interesting this time. 
 
+### Enumerating LDAP
+
+There are different techniques to enumerate this service where one of them was using different nmap scripts that are going to look for a service and enumerate it according the scripts given, or the usage of [ldapsearch](https://linux.die.net/man/1/ldapsearch) which is also good and clear. This time we are going to enumerate LDAP with nmap scripts.
+```
+nmap -p 389 10.10.10.119 --script=ldap-brute.nse,ldap-novell-getpass.nse,ldap-rootdse.nse,ldap-search.nse
+```
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/light/nmap1.png" alt="nmap scan">
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/light/nmap2.png" alt="nmap scan">
+
+Ok, according the results given by nmap, there are different things to look, such as the users which are ```ldapuser1 and ldapuser2```, and there are some hashes, but unfortunately we are not able to crack them.
