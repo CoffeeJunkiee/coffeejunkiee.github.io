@@ -79,3 +79,69 @@ After obtaining the credentials, it's time to log in and get the user flag!
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/light/user-flag.png" alt="nmap scan">
 
 The user has been owned. 
+
+### Privilege Escalation To ldapuser1
+
+In the home directory from user ```ldapuser2``` there is a file called ```backup.7z```, interesting name, right? So, we can transfer this file through base64.
+
+- From target machine: ``` base64 backup.7z ```
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/light/base.png" alt="nmap scan">
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/light/base2.png" alt="nmap scan">
+
+Copy the result in the localhost, and name it ```backup.7z.b64```, and decode it. After decoding it it's time to crack the password because we are required to use a password to read the file.
+
+#### Cracking backup.7z
+
+To crack backup.7z there is a tool-kit from John that can extract the hash from a 7z file and cracked. 
+
+```
+ perl 7z2john.pl backup.7z  > backup
+ john backup -w=/usr/share/wordlists/rockyou.txt
+```
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/light/7z-crack.png" alt="nmap scan">
+
+and we got the password which is ```delete```.
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/light/decom.png" alt="nmap scan">
+
+Once we extract the files from backup.7z we see a file called ```status.php``` which contains the passwords to get ```ldapuser1```. 
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/light/status-password.png" alt="nmap scan">
+
+Great, so we just ```su ldapuser2``` using the password found which is ```f3ca9d298a553da117442deeb6fa932d```.
+
+### Privileges Escalation to Root
+
+Using LinEnum we found other capability which was related to openssl, and there was a openssl binary in the home folder from ```ldapuser1``` which means that we might read, and write files through openssl. 
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/light/priv-esc.png" alt="nmap scan">
+
+Now, having this flaw, we can extract the file ```/etc/shadow``` from root
+```
+./openssl aes-256-cbc -d -a -in shadow.enc -out shadow
+```
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/light/cat-shadow.png" alt="nmap scan">
+
+Knowing that we can modify the hash from root in the shadow file, set our password and write it, so we can login to root with our own password.
+```
+./openssl aes-256-cbc -a -salt -in shadow -out shadow.enc
+```
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/light/coffee-pass.png" alt="nmap scan">
+
+And, we get to root with the password that we have set!
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/light/root.png" alt="nmap scan">
+
+And let's read the flag.
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/light/root-flag.png" alt="nmap scan">
+
+We have owned Lightweight!
+
+## To Conclude
+
+To be honest the machine was challenging and there was a lot to learn. The privileges escalation process was exotic in my own experience due to my lack of knowledge of capabilities in windows. Saying that, the learning experience was fruitful with this machine. 
+
+
+
+
