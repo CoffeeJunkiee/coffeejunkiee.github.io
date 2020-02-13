@@ -39,3 +39,12 @@ After enumerating LDAP, it's time to see what is to find in HTTP, but trying [go
 gobuster dir -u http://10.10.10.119/ -w /usr/share/dirbuster/wordlists/directory-list-lowercase-2.3-medium.txt -t 5 -x .php, .txt, .py
 ```
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/light/godir.png" alt="nmap scan">
+
+After checking with the browser the content from the webpage this is what we found. 
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/light/browser.png" alt="nmap scan">
+
+And, after going to ```user.php```, we found information saying that we can login through SSH using our IP as a username and password, great!
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/light/brow-info.png" alt="nmap scan">
+
