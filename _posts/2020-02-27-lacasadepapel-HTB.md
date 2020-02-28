@@ -55,3 +55,23 @@ Something interesting here! There is this file with some kind of certificate loc
 readfile  ('/home/nairobi/ca.key')
 ```
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/casa/read-key.png" alt="nmap2 scan">
+
+This certificate can be helpful to generate a certificate signing a request using openssl. This certificate will be useful in order to get access to the target website. In order to do this, execute the following commands. 
+```
+openssl req -new -key ca.key -out server.csr
+openssl x509 -req -days 365 -in server.csr -signkey ca.key -out server.crt
+openssl pkcs12 -export -in server.crt -inkey ca.key -out server.p12
+```
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/casa/sign-keys.png" alt="nmap2 scan">
+
+Once having the certificate, there is a chance to import export this certificate to our firefox browser, you can follow instructions from this [website](https://knowledge.digicert.com/solution/SO5437.html) to import the certificate. 
+
+Once the certificate is imported, we must remove the exemption in order to continue to the website.
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/casa/remove-exception.png" alt="nmap2 scan">
+
+Once the exemption has been removed, and the certificate accepted, this is the content in the target website. 
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/casa/cert-in.png" alt="nmap2 scan">
+
+Looking at the value of the episodes, this can be vulnerable to path traversal.
