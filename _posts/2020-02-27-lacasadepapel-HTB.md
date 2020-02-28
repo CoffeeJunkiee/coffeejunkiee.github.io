@@ -36,4 +36,22 @@ searchsploit vsftpd 2.3.4
 ```
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/casa/searchsploit.png" alt="nmap2 scan">
 
-According ```searchsploit``` metasploit has a module related to this FTP server and its vulnerability, but in the OSCP exam, the usage of metasploit has certain limitations, so in this case I found more information related to the server and its vulnerability in this [website](https://metalkey.github.io/vsftpd-v234-backdoor-command-execution.html)
+According ```searchsploit``` metasploit has a module related to this FTP server and its vulnerability, but in the OSCP exam, the usage of metasploit has certain limitations, so in this case I found more information related to the server and its vulnerability in this [website](https://metalkey.github.io/vsftpd-v234-backdoor-command-execution.html). The website shows that the vulnerability can be exploited by adding a smile face ```:)``` at the end of the user. That will be a trigger for port 6200 to open and look for more posibilities. 
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/casa/triger.png" alt="nmap2 scan">
+
+Effectively, the vulnerability was tigger with the smile face, also we have a good answer in port 6200 which is some kind of php debugging shell called [Psy-shell](https://www.sitepoint.com/interactive-php-debugging-psysh/). There are some commands that are restricted in this kind of shell, commands such as, ```system```, but there are other commands that are allowed. 
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/casa/help.png" alt="nmap2 scan">
+
+According the commands that we can execute, the command ```ls``` allow us to see local variables, in this case on of the local variables are ```$tokyo```. Knowing this variable, we can see the content in this varible. To see the content, execute this command. 
+```
+show $tokyo
+```
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/casa/show.png" alt="nmap2 scan">
+
+Something interesting here! There is this file with some kind of certificate located in ```/home/nairobi/ca.key```. We can read the file executing this commmand. 
+```
+readfile  ('/home/nairobi/ca.key')
+```
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/casa/read-key.png" alt="nmap2 scan">
