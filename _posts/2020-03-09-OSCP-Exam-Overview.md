@@ -49,3 +49,19 @@ Some moments you might find your brain executing the same commands, obtaining th
 - Sit down and get back to the terminal. 
 
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/oscp-exam/rabbit-hole.gif" alt="nmap scan">
+
+## Practice, practice, practice!
+
+The OSCP exam is going to test your skills on penetration testing, sounds obvious, but I went the first attempt of the exam without practice some things, and it didn't go that well. After learning from my mistakes, I decided to buy more time in the OSCP labs and pay for a Hack The Box in order to make my skills sharper. There is not some "how to get practice", just do it, sit down and try new things in the labs. The methodology and mindset is something good to have in your mind in the moment of practice, information gathering and some recon tools are going to be very useful during this process. 
+
+**Note:**
+- If you don't understand the tool, read the manual.
+- Be creative, the solution might be in front of your nose.
+- Do not get discourage if you don't get everything in a fast pace. 
+- Be open to learn new things. 
+- Seek for people's advice that have a extended experience in the field. 
+
+**Side Note:**
+Do not pretend to root all 5 machines without prior understanding and practice of the technology, but this can depends if you're somebody who have had prior experience in the cybersecuity industry, or you're just giving a shoot to the penetration testing world. Do not fully believe me, I'm just some 18 y/o noob trying to earn, and practice experience while I fell in love with the offensive security industry. 
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/oscp-exam/rabbit-hole.gif" alt="nmap scan">
