@@ -64,4 +64,49 @@ The OSCP exam is going to test your skills on penetration testing, sounds obviou
 **Side Note:**
 Do not pretend to root all 5 machines without prior understanding and practice of the technology, but this can depends if you're somebody who have had prior experience in the cybersecuity industry, or you're just giving a shoot to the penetration testing world. Do not fully believe me, I'm just some 18 y/o noob trying to earn, and practice experience while I fell in love with the offensive security industry. 
 
-<img src="{{ site.url }}{{ site.baseurl }}/assets/images/oscp-exam/rabbit-hole.gif" alt="nmap scan">
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/oscp-exam/practice.gif" alt="nmap scan">
+
+### Examples of Practice Through Machines Explained In CoffeJunkie's site. 
+
+After writing couple blogs prior my third attempt to the OSCP exam. I experienced some similarities in a couple machines during the exam passing through the information gathering phase. These are the following machines and exercise to keep in mind. 
+
+- [Jail:](https://coffeejunkie.me/jail-HTB/) This machine was useful due to two reasons.
+1. The information Gathering phase was extense with new things to learn and enumerate. 
+2. The privilege escalation phase was a little bit similar, but not as hard as this machine. 
+
+- [Jeeves:](https://coffeejunkie.me/jeeves-HTB/) This machine was useful due to two reasons.
+1. Ways to get a reverse shell thorugh web application (it was not fully similar). 
+2. Ways to get privilege escalation (it was not fully similar).
+
+## Exam Report
+
+There is not much to say about this, just:
+- Take specific screenshots of important steps against the target machine. 
+- Write your findings in your favorite place, could be [cherry](https://www.giuspen.com/cherrytree/) tree.
+- Use some kind of template to make your life easier. Personally I recommend [this](https://github.com/noraj/OSCP-Exam-Report-Template-Markdown) template.
+- Read Offensive Security Exam [guide](https://support.offensive-security.com/pwk-support/) prior taking your exam. 
+
+## Results
+
+After rooting 4 of the 5 machines and 38 hours of therapy with my computer, I waited one week to get the following email. 
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/oscp-exam/email.jpg" alt="nmap scan">
+
+Got happy because it was one of my dream certs and also made me understood that I have a long path to get through the cybersecurity world. It's good to understand that the cert is just the beginning of new knowledge that will be coming up. 
+
+**Lessons learned:**
+- Persistence and practice is key. 
+- Do not be afraid to ask.
+- Be open to learn new things every day. 
+- I am and will always be a noob, new knowledge is coming up every single day and woudl be hard to learned it all. 
+- Therefore, do not stop learning!
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/oscp-exam/learn.gif" alt="nmap scan">
+
+## Thanks
+
+- [Chivato](https://twitter.com/SecGus) For making me understand that I don't need to get graduate from college in order to pursue the cert. 
+- [Yekki](https://twitter.com/Yekki_1) For advicing me during the OSCP labs. 
+- [Ippsec](https://twitter.com/ippsec) For making quality learning content. 
+- [Platzi](https://twitter.com/platzi) For starting my path in the cyber world. 
+
