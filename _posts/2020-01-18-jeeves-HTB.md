@@ -1,6 +1,5 @@
 ---
 title:  "Hack The Box / Jeeves"
-permalink: /HTB-OSCP-Prep/
 date: 2020-01-18
 tags: [Penetration Testing, Hacking, Hack The Box, Jeeves, OSCP, Offensive Security]
 header: 
