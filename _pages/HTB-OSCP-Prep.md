@@ -27,3 +27,7 @@ Jeeves is an interesting and fun box to root due to the command script located i
 2. [Bart:](https://coffeejunkie.me/bart-HTB/)
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/oscp-prep/bart.png" alt="picture">
 If you're curious about word list creation and bruteforcing, [Bart](https://coffeejunkie.me/bart-HTB/) is the perfect box to root. In this box, the skills related to bruteforcing are going to be shape up once you try it! And the usage of different tools such as [Burpsuite](https://portswigger.net/burp) and [Hydra](https://tools.kali.org/password-attacks/hydra) are going to be essential here. The privilege escalation cover curious misconfigurations with Autologon credentials. 
+
+3. [Tally:](https://coffeejunkie.me/tally-HTB/)
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/oscp-prep/tally.png" alt="picture">
+
