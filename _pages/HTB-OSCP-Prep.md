@@ -2,7 +2,7 @@
 title:  "HTB-OSCP Prep"
 permalink: /HTB-OSCP-Prep/
 header:
-  image: "/assets/oscp-prep/header.jpg"
+  image: "/assets/images/oscp-prep/header.jpg"
 
 ---
 
