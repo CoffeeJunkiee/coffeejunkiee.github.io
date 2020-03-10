@@ -21,3 +21,4 @@ In the following content I will explain the ten machines that were published in 
 **Note:** All the machines showed here were write ups from retired machines from [Hack The Box](https://www.hackthebox.eu/)
 
 1. [Jeeves:](https://coffeejunkie.me/jeeves-HTB/)
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/oscp-prep/jeeves.png" alt="picture">
