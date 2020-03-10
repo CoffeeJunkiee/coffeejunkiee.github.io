@@ -1,9 +1,8 @@
 ---
 title:  "HTB-OSCP-Prep"
 permalink: /HTB-OSCP-Prep/
-layout: posts
 header:
-  image: "/assets/images/about.jpg"
+  image: "/assets/oscp-prep/header.jpg"
 
 ---
 
