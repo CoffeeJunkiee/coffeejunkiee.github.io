@@ -22,3 +22,4 @@ In the following content I will explain the ten machines that were published in 
 
 1. [Jeeves:](https://coffeejunkie.me/jeeves-HTB/)
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/oscp-prep/jeeves.png" alt="picture">
+Jeeves is an interesting and fun box to root due to the command script located in the web server and different ways to escalate privileges without the need of metasploit. If you're new with [Rotten or Juicy potato](https://github.com/ohpe/juicy-potato) this box might be a good place to start. 
