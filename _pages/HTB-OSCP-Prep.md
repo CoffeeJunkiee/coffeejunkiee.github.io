@@ -30,4 +30,21 @@ If you're curious about word list creation and bruteforcing, [Bart](https://coff
 
 3. [Tally:](https://coffeejunkie.me/tally-HTB/)
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/oscp-prep/tally.png" alt="picture">
+If you struggle with enumeration for a certain technology, Tally will make you Google all the things! Its SharePoint Web technology will make you see how you can find different credentials in documents. Enumeration is key with this fun to learn box. Also, if you wanna try some windows enumeration this box can be a good candidate.
+
+4. [Active:](https://coffeejunkie.me/active-HTB/)
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/oscp-prep/active.png" alt="picture">
+Windows enumeration and some cryptography are the cool things to see in this box! Also, get familia with some of the [impacket](https://github.com/SecureAuthCorp/impacket) tools if you want to root this box. 
+
+5. [Jail:](https://coffeejunkie.me/jail-HTB/)
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/oscp-prep/jail.png" alt="picture">
+Jail is a pretty long box, but amazing to learn some of buffer overflow, and how to work with the debugger. The exploitation and privilege escalation is crucial due tot the importance of permissions with shares given by nfs services. Creativity and enumeraion is key for the privilege escalation. If you want some kind of new learning and challenge, this box is for you. 
+
+6. [Falafel:](https://coffeejunkie.me/falafel-HTB/)
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/oscp-prep/falafel.png" alt="picture">
+The usage of [Burpsuite](https://portswigger.net/burp) and a clear enumeration is going to be useful for this machine. Also, you're going to see how some credentials are stored in clear text in different databases, besides this, the privilege escalation is quite interesting due to the user groups. Creativity and research are required for this box. 
+
+7. 
+
+
 
