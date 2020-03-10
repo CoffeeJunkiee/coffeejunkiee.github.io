@@ -22,4 +22,8 @@ In the following content I will explain the ten machines that were published in 
 
 1. [Jeeves:](https://coffeejunkie.me/jeeves-HTB/)
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/oscp-prep/jeeves.png" alt="picture">
-Jeeves is an interesting and fun box to root due to the command script located in the web server and different ways to escalate privileges without the need of metasploit. If you're new with [Rotten or Juicy potato](https://github.com/ohpe/juicy-potato) this box might be a good place to start. 
+Jeeves is an interesting and fun box to root due to the command script located in the web server and different ways to escalate privileges without the need of metasploit. If you're new with [Rotten or Juicy Potato](https://github.com/ohpe/juicy-potato) this box might be a good place to start. 
+
+2. [Bart:](https://coffeejunkie.me/bart-HTB/)
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/oscp-prep/bart.png" alt="picture">
+If you're curious about word list creation and bruteforcing, [Bart](https://coffeejunkie.me/bart-HTB/) is the perfect box to root. In this box, the skills related to bruteforcing are going to be shape up once you try it! And the usage of different tools such as [Burpsuite](https://portswigger.net/burp) and [Hydra](https://tools.kali.org/password-attacks/hydra) are going to be essential here. The privilege escalation cover curious misconfigurations with Autologon credentials. 
