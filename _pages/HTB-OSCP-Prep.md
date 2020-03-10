@@ -1,5 +1,5 @@
 ---
-title:  "HTB-OSCP-Prep"
+title:  "HTB-OSCP Prep"
 permalink: /HTB-OSCP-Prep/
 header:
   image: "/assets/oscp-prep/header.jpg"
