@@ -48,7 +48,28 @@ Jail is a pretty long box, but amazing to learn some of buffer overflow, and how
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/oscp-prep/falafel.png" alt="picture">
 The usage of [Burpsuite](https://portswigger.net/burp) and a clear enumeration is going to be useful for this machine. Also, you're going to see how some credentials are stored in clear text in different databases, besides this, the privilege escalation is quite interesting due to the user groups. Creativity and research are required for this box. 
 
-7. 
+7. [DevOops:](https://coffeejunkie.me/DevOops-HTB/)
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/oscp-prep/devops.png" alt="picture">
+If you're trying to get familiar with [OWASP TOP 10](https://sucuri.net/guides/owasp-top-10-security-vulnerabilities-2020/) this box is for you due to the way to obtain information in order to get a reverse shell. Also, if you wanna get familiar with [git](https://confluence.atlassian.com/bitbucketserver/basic-git-commands-776639767.html) and its commands this box will be a good candidate for you. The privilege escalation will be very well related to git so check it out!
+
+8. [Hawk:](https://coffeejunkie.me/hawk-HTB/)
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/oscp-prep/hawk.png" alt="picture">
+This box contains information that will be fun to learn such as how to crack SSL Salted Passwords. It's enumeration and research process about the technologies that this box uses is quite useful. It's privilege escalation will be related to different misconfiguration and passwords found in files within the machine. 
+
+9. [Netmon:](https://coffeejunkie.me/netmon-HTB/)
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/oscp-prep/netmon.png" alt="picture">
+Enumeration related to a certain technology used in this box is going to be crucial at the time to get the attack vector. Besides the usage of [impacket](https://github.com/SecureAuthCorp/impacket) is pretty handy in order to get a reverse shell. If you wanna check network monitors that are related with windows systems, this box is a good candidate for you. 
+
+10. [Lightweight](https://coffeejunkie.me/lightweight-HTB/)
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/oscp-prep/light.png" alt="picture">
+Enumeration of different services, nmap scripts, and the usage of [tcpdump](https://www.tcpdump.org/) are very helpful in this machine. Privilege escalation was a new learning path to check. 
+
+11. [La Casa De Papel:](https://coffeejunkie.me/lacasadepapel-HTB/)
+Web application testing will be something good to practice with this machine. Things such as path traversal, and ssl certificates are important here as well. Privilege escalation is related to some script that you can manipulate. This machines is "straight forward" as long the enumeration is well made. 
+
+
+
+
 
 
 
