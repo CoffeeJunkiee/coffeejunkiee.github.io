@@ -70,13 +70,12 @@ Do not pretend to root all 5 machines without prior understanding and practice o
 
 After writing couple blogs prior my third attempt to the OSCP exam. I experienced some similarities in a couple machines during the exam passing through the information gathering phase. These are the following machines and exercise to keep in mind. 
 
-- [Jail:](https://coffeejunkie.me/jail-HTB/) This machine was useful due to two reasons.
-1. The information Gathering phase was extense with new things to learn and enumerate. 
-2. The privilege escalation phase was a little bit similar, but not as hard as this machine. 
+- [Jail:](https://coffeejunkie.me/jail-HTB/) 
 
-- [Jeeves:](https://coffeejunkie.me/jeeves-HTB/) This machine was useful due to two reasons.
-1. Ways to get a reverse shell thorugh web application (it was not fully similar). 
-2. Ways to get privilege escalation (it was not fully similar).
+- [Jeeves:](https://coffeejunkie.me/jeeves-HTB/) 
+
+There is no need to reveal specific hints, these boxes are good candidates of practice prior the exam. 
+
 
 ## Exam Report
 
