@@ -8,7 +8,7 @@ header:
 
 OSCP is one of the most wanted and demanded certification related to Offensive Security industry. The preparation, content, and exam contains a bast amount of time and information to study and comprehend, but still one of the basic knowledge learned during the cert due to the fast advance of offensive security. The mindset earned is priceless because it introduces you to the persistence, and mantra "Try Harder", which is something that drives people to the success and to overcome frustation during the OSCP journey. 
 
-In this site, there are ten posts related to [Hack The Box](https://www.hackthebox.eu/) and some machines that are similar to the OSCP lab. The posts published here had the purpose to practice, learn, and understand some of the basic methodology related to penetration testing, so if you're looking for some practice and preparation, you might find this useful. 
+In this site, there are eleven posts related to [Hack The Box](https://www.hackthebox.eu/) and some machines that are similar to the OSCP lab. The posts published here had the purpose to practice, learn, and understand some of the basic methodology related to penetration testing, so if you're looking for some practice and preparation, you might find this useful. 
 
 ## Preparation and Final Goal
 
@@ -16,7 +16,7 @@ The preparation was to achieve 10 machines that were provided by [NetSec Focus](
 
 ### Write Ups OSCP Like
 
-In the following content I will explain the ten machines that were published in this website in order to earn the OSCP certification. 
+In the following content I will explain the eleven machines that were published in this website in order to earn the OSCP certification. 
 
 **Note:** All the machines showed here were write ups from retired machines from [Hack The Box](https://www.hackthebox.eu/)
 
@@ -39,7 +39,6 @@ If you struggle with enumeration for a certain technology, Tally will make you G
 Windows enumeration and some cryptography are the cool things to see in this box! Also, get familia with some of the [impacket](https://github.com/SecureAuthCorp/impacket) tools if you want to root this box. 
 
 5. [Jail:](https://coffeejunkie.me/jail-HTB/)
-
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/oscp-prep/jail.png" alt="picture">
 
 Jail is a pretty long box, but amazing to learn some of buffer overflow, and how to work with the debugger. The exploitation and privilege escalation is crucial due tot the importance of permissions with shares given by nfs services. Creativity and enumeraion is key for the privilege escalation. If you want some kind of new learning and challenge, this box is for you. 
@@ -65,6 +64,7 @@ Enumeration related to a certain technology used in this box is going to be cruc
 Enumeration of different services, nmap scripts, and the usage of [tcpdump](https://www.tcpdump.org/) are very helpful in this machine. Privilege escalation was a new learning path to check. 
 
 11. [La Casa De Papel:](https://coffeejunkie.me/lacasadepapel-HTB/)
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/oscp-prep/casa.png" alt="picture">
 Web application testing will be something good to practice with this machine. Things such as path traversal, and ssl certificates are important here as well. Privilege escalation is related to some script that you can manipulate. This machines is "straight forward" as long the enumeration is well made. 
 
 
