@@ -2,5 +2,7 @@
 main:
   - title: "HTB-OSCP Prep"
     url: /HTB-OSCP-Prep/
+  - title: "Pentest Resources"
+    url: /pentest-resources
   - title: "About"
     url: /about/
