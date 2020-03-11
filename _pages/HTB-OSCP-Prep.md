@@ -33,14 +33,11 @@ If you're curious about word list creation and bruteforcing, [Bart](https://coff
 If you struggle with enumeration for a certain technology, Tally will make you Google all the things! Its SharePoint Web technology will make you see how you can find different credentials in documents. Enumeration is key with this fun to learn box. Also, if you wanna try some windows enumeration this box can be a good candidate.
 
 4. [Active:](https://coffeejunkie.me/active-HTB/)
-
-<img src="{{ site.url }}{{ site.baseurl }}/assets/images/oscp-prep/active.png" alt="picture">
-
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/oscp-prep/active.png" alt="picture">=
 Windows enumeration and some cryptography are the cool things to see in this box! Also, get familia with some of the [impacket](https://github.com/SecureAuthCorp/impacket) tools if you want to root this box. 
 
 5. [Jail:](https://coffeejunkie.me/jail-HTB/)
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/oscp-prep/jail.png" alt="picture">
-
 Jail is a pretty long box, but amazing to learn some of buffer overflow, and how to work with the debugger. The exploitation and privilege escalation is crucial due tot the importance of permissions with shares given by nfs services. Creativity and enumeraion is key for the privilege escalation. If you want some kind of new learning and challenge, this box is for you. 
 
 6. [Falafel:](https://coffeejunkie.me/falafel-HTB/)
@@ -67,9 +64,10 @@ Enumeration of different services, nmap scripts, and the usage of [tcpdump](http
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/oscp-prep/casa.png" alt="picture">
 Web application testing will be something good to practice with this machine. Things such as path traversal, and ssl certificates are important here as well. Privilege escalation is related to some script that you can manipulate. This machines is "straight forward" as long the enumeration is well made. 
 
+- Final Goal -- [OSCP exam overview](https://coffeejunkie.me/OSCP-Exam-Overview/)
 
+Here there are different kind of things that helped me to go through the exam. The hole practice helped me out to prepare and succeed during the OSCP journey. 
 
+## Thanks
 
-
-
-
+All the readers and people who encourage me during the journey.
