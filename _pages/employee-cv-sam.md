@@ -1,6 +1,6 @@
 ---
-title:  "About"
-permalink: /about/
+title:  "Resume"
+permalink: /employee-cv-sam/
 header:
   image: "/assets/images/about.jpg"
 
