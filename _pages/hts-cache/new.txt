@@ -1,0 +1,3 @@
+date	size'/'remotesize	flags(request:Update,Range state:File response:Modified,Chunked,gZipped)	statuscode	status ('servermsg')	MIME	Etag|Date	URL	localfile	(from URL)
+01:13:54	118/118	---M--	200	added ('OK')	text/plain	etag:%225e87219c-76%22	https://intigriti-pentest-12.speakap.com/robots.txt		(from )
+01:13:54	17818/17818	---MCZ	200	added ('OK')	text/html	date:Thu,%2004%20Jun%202020%2001:14:03%20GMT	https://intigriti-pentest-12.speakap.com/	/root/websites/speak/intigriti-pentest-12.speakap.com/index.html	(from )
