@@ -1,0 +1,24 @@
+---
+title:  "Day 87/100 Hack and Improvement"
+date: 2020-07-26
+tags: [Penetration Testing, Hacking, Bug Bounty, Offensive Security]
+header: 
+  image: "assets/images/100dl/day86/header.jpg"
+---
+Day 87 comes with some readings on account take over and HTTP Smuggling from PortSwigger Academy. 
+
+## Hacking companies through help desk
+
+From [Rajesh Ranjan](https://twitter.com/eh_rajesh). Here is a link for the [article](https://medium.com/@__mr_beast__/the-3-day-account-takeover-269b0075d526).
+
+## HTTP Smuggling Labs from PortSwigget
+From [Sam (CoffeeJunkie)](https://twitter.com/coffeejunkiee_). Checking out a better understanding on HTTP Smuggling attacks, [PortSwigger](https://portswigger.net/web-security/request-smuggling) Academy seemed to be helpful at the time to have basic understanding on HTTP Smuggling and the findings of the vulnerability. 
+
+You can find:
+
+1. [HTTP request smuggling, basic CL.TE vulnerability](https://portswigger.net/web-security/request-smuggling/lab-basic-cl-te)
+2. [https://portswigger.net/web-security/request-smuggling/lab-basic-te-cl](https://portswigger.net/web-security/request-smuggling/lab-basic-te-cl)
+3. [HTTP request smuggling, obfuscating the TE header](https://portswigger.net/web-security/request-smuggling/lab-ofuscating-te-header)
+
+
+<iframe src="https://giphy.com/embed/km2WGY0MOqwlq" width="480" height="288" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/blog-access-mexico-vs-jamaica-2015-km2WGY0MOqwlq">via GIPHY</a></p>
